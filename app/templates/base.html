@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema de Gestión de Residentes - Embajada{% endblock %}</title>
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='/images/favicon.ico') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Triángulo exterior -->
+                <polygon points="100,20 20,180 180,180" 
+                         fill="none" 
+                         stroke="#4facfe" 
+                         stroke-width="8"/>
+                
+                <!-- Rectángulo central (edificio/embajada) -->
+                <rect x="80" y="80" width="40" height="60" 
+                      fill="#4facfe" 
+                      stroke="#fff" 
+                      stroke-width="2"/>
+                
+                <!-- Ventanas -->
+                <rect x="85" y="90" width="10" height="10" fill="#1a1a2e"/>
+                <rect x="105" y="90" width="10" height="10" fill="#1a1a2e"/>
+                <rect x="85" y="110" width="10" height="10" fill="#1a1a2e"/>
+                <rect x="105" y="110" width="10" height="10" fill="#1a1a2e"/>
+                
+                <!-- Puerta -->
+                <rect x="90" y="125" width="20" height="15" fill="#1a1a2e"/>
+            </svg>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="/" class="active">Inicio</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#">Configuración</a></li>
+            <li><a href="#">Ayuda</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Scripts JavaScript -->
+    <script src="{{ url_for('static', path='/js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
